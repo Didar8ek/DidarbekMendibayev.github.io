@@ -20,8 +20,12 @@ Route::get('/', function () {
 });
 
 Route::get('post/create', function () {
-    DB:: table("posts")->insert([
-     'id'=> "2", 
+    DB:: table("post")->insert([
+     'title' => 'thisistitle',
+     'body' => 'thisisbody'
     ]);
 });
-
+Route::get('post', function () {
+    $post = Post::find(1);
+    return $post;
+});

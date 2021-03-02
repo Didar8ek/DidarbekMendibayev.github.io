@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
 
+use App\Models\Post;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,4 +17,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index');
+});
+
+Route::get('post/create', function () {
+    DB:: table("post")->insert([
+     'title' => 'thisistitle',
+     'body' => 'thisisbody'
+    ]);
+});
+Route::get('post', function () {
+    $post = Post::find(1);
+    return $post;
 });

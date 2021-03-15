@@ -2,8 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
-
 use App\Models\Post;
+use App\Http\Controllers\BlogController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,16 +16,16 @@ use App\Models\Post;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('welcome');
 });
 
 Route::get('post/create', function () {
-    DB:: table("post")->insert([
-     'title' => 'thisistitle',
-     'body' => 'thisisbody'
+    DB::table("post")->insert([
+        'title' => 'thisistitle',
+        'body' => 'thisisbody', 
     ]);
 });
-Route::get('post', function () {
-    $post = Post::find(1);
-    return $post;
+Route::get('post', [BlogController::class,"index"]);
+Route::get('post/create', function() {
+    return view('blog.create'); 
 });

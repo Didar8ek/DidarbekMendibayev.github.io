@@ -16,7 +16,7 @@ use App\Http\Controllers\BlogController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::get('post/create', function () {
@@ -26,6 +26,7 @@ Route::get('post/create', function () {
     ]);
 });
 Route::get('post', [BlogController::class,"index"]);
-Route::get('post/create', function() {
-    return view('blog.create'); 
+Route::get('post/create2', function() {
+    return view('blog.index'); 
 });
+Route::post('blog/index',[BlogController::class,'store'])->name('add-blog');

@@ -30,3 +30,4 @@ Route::get('post/create2', function() {
     return view('blog.index'); 
 });
 Route::post('blog/index',[BlogController::class,'store'])->name('add-blog');
+Route::get('post/{id}',[BlogController::class,'get_client']);

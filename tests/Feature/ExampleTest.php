@@ -20,18 +20,18 @@ class ExampleTest extends TestCase
     }
 
     public function test_client_id_get_request(){
-        $response = $this->get('/client/1');
+        $response = $this->get('/post/1');
 
         $response->assertStatus(200);
     }
 
     public function test_get_unexisted_client(){
-        $response = $this->get('/client/1000');
+        $response = $this->get('/post/1000');
 
         $response->assertStatus(404);
     }
     public function test_client_response(){
-        $response = $this-> get('/client/1');
+        $response = $this-> get('/post/1');
         $response -> assertViewHas('client');
     }
 }
